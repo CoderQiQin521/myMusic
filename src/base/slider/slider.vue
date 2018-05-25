@@ -8,12 +8,11 @@
 </template>
 
 <script type="text/ecmascript-6">
-
-import {addClass} from 'common/js/dom'
+import { addClass } from "common/js/dom";
 // import BScroll from 'better-scroll'
 
 export default {
-  name: 'slider',
+  name: "slider",
   props: {
     loop: {
       type: Boolean,
@@ -30,26 +29,26 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      this._setSliderWidth()
-      this._initSlider()
-    }, 20)
+      this._setSliderWidth();
+      this._initSlider();
+    }, 20);
   },
   methods: {
     _setSliderWidth() {
-      this.children = this.$refs.sliderGroup.children
-      let width = 0
-      let sliderWidth = this.$refs.slider.clientWidth
+      this.children = this.$refs.sliderGroup.children;
+      let width = 0;
+      let sliderWidth = this.$refs.slider.clientWidth;
       for (let i = 0; i < this.children.length; i++) {
-        let child = this.children[i]
-        addClass(child, 'slider-item')
-        console.log(331)
-        child.style.width = sliderWidth + 'px'
-        width += sliderWidth
+        let child = this.children[i];
+        addClass(child, "slider-item");
+        console.log(331);
+        child.style.width = sliderWidth + "px";
+        width += sliderWidth;
       }
       if (this.loop) {
-        width += 2 * sliderWidth
+        width += 2 * sliderWidth;
       }
-      this.$refs.sliderGroup.style.width = width + 'px'
+      this.$refs.sliderGroup.style.width = width + "px";
     },
     _initSlider() {}
   }
